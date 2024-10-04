@@ -3,7 +3,12 @@ import mongoose from "mongoose";
 const questionSchema = new mongoose.Schema({
 	topic: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: "AptitudeTopic",
+		ref: "CoreTopic", // Reference to the Topic model
+		required: true,
+	},
+	subtopic: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "CoreSubtopic", // Reference to the Subtopic model
 		required: true,
 	},
 	question: {
@@ -28,7 +33,7 @@ const questionSchema = new mongoose.Schema({
 	},
 });
 
-const AptitudeQuestionModel =
-	mongoose.models.AptitudeQuestion || mongoose.model("AptitudeQuestion", questionSchema);
-
-export default AptitudeQuestionModel;
+// Ensure the model name is unique
+const CoreQuestionModel =
+	mongoose.models.CoreQuestion || mongoose.model("CoreQuestion", questionSchema);
+export default CoreQuestionModel;

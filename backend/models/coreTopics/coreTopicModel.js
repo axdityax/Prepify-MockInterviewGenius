@@ -15,7 +15,5 @@ const topicSchema = new mongoose.Schema({
 	},
 });
 
-const AptitudeTopicModel =
-	mongoose.models.AptitudeTopic || mongoose.model("AptitudeTopic", topicSchema);
-
-export default AptitudeTopicModel;
+const CoreTopicModel = mongoose.models.CoreTopic || mongoose.model("CoreTopic", topicSchema);
+export default CoreTopicModel;
